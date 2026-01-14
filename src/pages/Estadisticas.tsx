@@ -24,6 +24,12 @@ const Estadisticas: React.FC = () => {
 
   useEffect(() => {
     calcularEstadisticas();
+    
+    const interval = setInterval(() => {
+      calcularEstadisticas();
+    }, 1000);
+    
+    return () => clearInterval(interval);
   }, []);
 
   const calcularEstadisticas = () => {
